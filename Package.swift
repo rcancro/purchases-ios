@@ -9,7 +9,10 @@ func resolveTargets() -> [Target] {
         .target(name: "RevenueCat",
                 path: ".",
                 exclude: ["Purchases/Info.plist"],
-                sources: ["Purchases"]
+                sources: ["Purchases"],
+                cSettings: [
+                    .define("NS_BLOCK_ASSERTIONS", to: "1", .when(configuration: .release)),
+                ]
         )
     ]
 
